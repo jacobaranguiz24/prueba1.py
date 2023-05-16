@@ -1,2 +1,59 @@
 # prueba1.py
-correction 
+
+#variables
+usuario = ()
+contraseña = ()
+ip =()
+nombre =()
+servicios =()
+capa =()
+y = 1
+
+
+#menu principal
+menuprincipal = int(input(' ===Menu principal===  \n 1- Ingresar usuario  \n 2- salir \n '))
+while menuprincipal != 0:
+    if menuprincipal == 1:
+        file = open("usuarios.txt", "a")
+        usuario = input('Ingrese usuario: ')
+        contraseña = input('Ingrese contraseña: ')
+        file.write(usuario + ' : ' + contraseña + '\n')
+        file.close()
+    elif menuprincipal == 2:
+        exit()
+    menuprincipal2 = int(input('==Menu secundario==  \n 1- Ingresar datos \n 2- Ver datos \n 3- Salir \n'))
+    while menuprincipal2 != 0:
+        if menuprincipal2 == 1:
+            x = input('Cuantos datos ingresara: ')
+            x=int(x)
+            while y<=x:
+                file1 = open ('datos.txt', 'a')
+                ip = input('Ingrese IP: \n')
+                nombre = input('Ingrese nombre del dispositivo: \n')
+                vlan = input('Ingrese Vlan: \n')
+                servicios = input('Ingrese servicios de red comprometidos: \n')
+                capa = input('Ingrese modelo jerargico: \n')
+                file1.write( ip + '/' + nombre + '/' + vlan +'/'+ servicios +'/'+ capa + '.' + '\n')
+                file1.close()
+                print ('Datos guardados exitosamente')
+                print(y)
+                y=y+1
+            exit()
+        elif menuprincipal2 == 2:
+        #documento de texto
+            print(' Direccionamiento ip | Nombre del dispositivo | Vlan configurada | Servicios de red comprometidos | Modelo jerarquico ')
+            file2=open("datos.txt", "r")
+            for item in file2:
+                item=item.strip()
+                print(item)
+            file2.close()
+            print('Datos ingresados ultimamente.')
+            exit()
+        elif menuprincipal2 ==3:
+            exit()
+        else:
+            exit()
+    else:
+        exit()
+else:
+    exit()            
